@@ -7,11 +7,11 @@ function register_user($register_data) {
     $fields = '`' . implode('`, `', array_keys($register_data)) . '`';
     $data = '\'' . implode('\', \'', $register_data) . '\'';
 
-    mysql_query("INSERT INTO `credentials` ($fields) VALUES ($data)");
+    mysql_query("INSERT INTO `users` ($fields) VALUES ($data)");
 }
 
 function user_count() {
-    return mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `credentials` WHERE `active` = 1"), 0);
+    return mysql_result(mysql_query("SELECT COUNT(`user_id`) FROM `users` WHERE `active` = 1"), 0);
 }
 
 function user_data($user_id){
@@ -25,7 +25,7 @@ function user_data($user_id){
         unset($func_get_args[0]);
 
         $fields = '`'.implode('`, `', $func_get_args). '`';
-        $result = mysql_query("SELECT $fields FROM `credentials` WHERE `user_id` = $user_id");
+        $result = mysql_query("SELECT $fields FROM `users` WHERE `user_id` = $user_id");
         $data = mysql_fetch_assoc($result);
 
         return $data;
@@ -39,25 +39,25 @@ function logged_in() {
 
 function user_exists($username){
     $username = sanitize($username);
-    $query = mysql_query("SELECT COUNT(user_id) FROM `credentials` WHERE username = '$username'");
+    $query = mysql_query("SELECT COUNT(user_id) FROM `users` WHERE username = '$username'");
     return (mysql_result($query, 0) == 1) ? true : false;
 }
 
 function email_exists($email){
     $email = sanitize($email);
-    $query = mysql_query("SELECT COUNT(user_id) FROM `credentials` WHERE email = '$email'");
+    $query = mysql_query("SELECT COUNT(user_id) FROM `users` WHERE email = '$email'");
     return (mysql_result($query, 0) == 1) ? true : false;
 }
 
 function user_active($username){
     $username = sanitize($username);
-    $query = mysql_query("SELECT COUNT(user_id) FROM `credentials` WHERE username = '$username' AND `active`=1");
+    $query = mysql_query("SELECT COUNT(user_id) FROM `users` WHERE username = '$username' AND `active`=1");
     return (mysql_result($query, 0) == 1) ? true : false;
 }
 
 function user_id_from_username($username) {
     $username = sanitize($username);
-    return mysql_result(mysql_query("SELECT `user_id` FROM `credentials` WHERE `username` = '$username'"), 0, 'user_id');
+    return mysql_result(mysql_query("SELECT `user_id` FROM `users` WHERE `username` = '$username'"), 0, 'user_id');
 }
 
 function login ($username, $password){
@@ -66,7 +66,7 @@ function login ($username, $password){
     $username = sanitize($username);
     $password = md5($password);
 
-    return (mysql_result(mysql_query("SELECT COUNT(user_id) FROM `credentials` WHERE `username` = '$username' AND `password` = '$password'"), 0) == 1) ? $user_id : false;
+    return (mysql_result(mysql_query("SELECT COUNT(user_id) FROM `users` WHERE `username` = '$username' AND `password` = '$password'"), 0) == 1) ? $user_id : false;
 }
 
 

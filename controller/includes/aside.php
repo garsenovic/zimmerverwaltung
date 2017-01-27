@@ -1,11 +1,11 @@
 <aside>
     <?php
     if (logged_in() === true) {
-        include 'includes/widgets/loggedin.php';
+        include 'widgets/loggedin.php';
     }else {
-        include 'includes/widgets/login.php';
+        include 'widgets/login.php';
     }
-    include 'includes/widgets/user_count.php';
+    include 'widgets/user_count.php';
     ?>
 
 </aside>
