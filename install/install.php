@@ -1,5 +1,5 @@
 <?php
-require 'database.php';
+require '../model/database.php';
 require 'install_db.php';
 
 Create::connectDB();
