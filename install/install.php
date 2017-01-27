@@ -1,9 +1,9 @@
 <?php
-require 'database.php';
+require '../model/database.php';
 require 'install_db.php';
 
 Create::connectDB();
-Create::checkIfDbExists('crud_tutorial');
+Create::checkIfDbExists('reservierung');
 Create::closeDB();
 
 
@@ -19,7 +19,7 @@ $cont->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //    -- -----------------------------------------------------
 //-- Table `mydb`.`reservierung`
 //-- -----------------------------------------------------
-$sql = "CREATE TABLE IF NOT EXISTS reservierung` (
+$sql = "CREATE TABLE IF NOT EXISTS `reservierung` (
 `ID` INT NOT NULL AUTO_INCREMENT,
   `start_date` DATE NULL,
   `end_date` DATE NULL,
