@@ -48,12 +48,17 @@ ENGINE = InnoDB";
     //-- -----------------------------------------------------
 //-- Table `users`
 //-- -----------------------------------------------------
-    $sql3 = "CREATE TABLE IF NOT EXISTS `users` (
-`iduser` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NULL,
-  `pw` VARCHAR(60) NULL,
-  PRIMARY KEY (`iduser`))
-ENGINE = InnoDB";
+    $sql3 = "
+CREATE TABLE IF NOT EXISTS `users` (
+  `user_id` INT NOT NULL AUTO_INCREMENT,
+  `username` varchar(25) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `first_name` varchar(32) NOT NULL,
+  `last_name` varchar(32) NOT NULL,
+  `email` varchar(1024) NOT NULL,
+  `active` int(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB";
 
 
 
