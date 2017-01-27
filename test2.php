@@ -6,5 +6,6 @@
  * Time: 10:26
  */
 echo "§ZWE";
+echo "Das ist ein TEST "
 echo "git ist sscheissssssseeeee";
 ?>
