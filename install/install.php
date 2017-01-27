@@ -3,7 +3,7 @@ require 'database.php';
 require 'install_db.php';
 
 Create::connectDB();
-Create::checkIfDbExists('crud_tutorial');
+Create::checkIfDbExists('reservierung');
 Create::closeDB();
 
 
