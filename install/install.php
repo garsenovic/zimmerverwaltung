@@ -17,12 +17,13 @@ $cont->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // sql to create table
 
 //    -- -----------------------------------------------------
-//-- Table `mydb`.`reservierung`
+//-- Table `reservierung`
 //-- -----------------------------------------------------
 $sql = "CREATE TABLE IF NOT EXISTS `reservierung` (
 `ID` INT NOT NULL AUTO_INCREMENT,
   `start_date` DATE NULL,
   `end_date` DATE NULL,
+  `timestamp` TIMESTAMP NOT NULL,
   `persons` INT NULL,
   `prename` VARCHAR(55) NULL,
   `lastname` VARCHAR(55) NULL,
@@ -33,7 +34,7 @@ ENGINE = InnoDB";
 
 
 //-- -----------------------------------------------------
-//-- Table `mydb`.`rooms`
+//-- Table `rooms`
 //-- -----------------------------------------------------
 $sql2 = "CREATE TABLE IF NOT EXISTS `rooms` (
 `idrooms` INT NOT NULL AUTO_INCREMENT,
@@ -44,11 +45,22 @@ $sql2 = "CREATE TABLE IF NOT EXISTS `rooms` (
   PRIMARY KEY (`idrooms`))
 ENGINE = InnoDB";
 
+    //-- -----------------------------------------------------
+//-- Table `users`
+//-- -----------------------------------------------------
+    $sql3 = "CREATE TABLE IF NOT EXISTS `users` (
+`iduser` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `pw` VARCHAR(60) NULL,
+  PRIMARY KEY (`iduser`))
+ENGINE = InnoDB";
+
 
 
     // use exec() because no results are returned
 $cont->exec($sql);
     $cont->exec($sql2);
+    $cont->exec($sql3);
 echo "Table customers created successfully";
 }
 
