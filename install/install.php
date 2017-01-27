@@ -19,7 +19,7 @@ $cont->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //    -- -----------------------------------------------------
 //-- Table `mydb`.`reservierung`
 //-- -----------------------------------------------------
-$sql = "CREATE TABLE IF NOT EXISTS reservierung` (
+$sql = "CREATE TABLE IF NOT EXISTS `reservierung` (
 `ID` INT NOT NULL AUTO_INCREMENT,
   `start_date` DATE NULL,
   `end_date` DATE NULL,
@@ -62,5 +62,5 @@ catch
 //$cont = null; nur sinnig wenn include oder require
 
 
-    header('Location: index.php');
+    //header('Location: index.php');
 ?>
