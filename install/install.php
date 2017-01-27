@@ -48,6 +48,7 @@ ENGINE = InnoDB";
 
     // use exec() because no results are returned
 $cont->exec($sql);
+    $cont->exec($sql2);
 echo "Table customers created successfully";
 }
 
@@ -57,16 +58,6 @@ catch
     echo $sql . "<br>" . $e->getMessage();
 }
 
-// use exec() because no results are returned
-$cont->exec($sql2);
-echo "Table customers created successfully";
-}
-
-catch
-(PDOException $e)
-{
-    echo $sql . "<br>" . $e->getMessage();
-}
 
 //$cont = null; nur sinnig wenn include oder require
 
