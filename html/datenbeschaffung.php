@@ -33,9 +33,93 @@ function wocheFunc() {
         $count++;
 
     }
+    Database::disconnect();
     $jsondaten = json_encode($array);
     return $jsondaten;
 }
+
+
+function monatFunc(){
+    $cont = Database::connect();
+    $count = 0;
+
+    for ($i = 31;$i>=0;$i--) {
+        $sql = "SELECT * FROM reservierung WHERE timestamp BETWEEN (CURRENT_DATE-($i)) and CURRENT_DATE-$i+1";
+
+        $stmt = $cont->prepare($sql);
+        $stmt->execute();
+        $total = $stmt->rowCount();
+
+        $array[$count] = $total;
+        // echo $array[$count];
+        $count++;
+
+    }
+    Database::disconnect();
+    $jsondaten = json_encode($array);
+    return $jsondaten;
+
+
+
+}
+
+    function jahrFunc(){
+        $cont = Database::connect();
+        $count = 0;
+
+        //$datum= array();
+        //$datum = ["Jänner", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "Septmeber", "Oktober", "November", "Dezember"];
+
+
+        for ($i = 1;$i<=12;$i++) {
+            $sql = "SELECT * FROM reservierung WHERE MONTH(TIMESTAMP) = $i";
+
+            $stmt = $cont->prepare($sql);
+            $stmt->execute();
+            $total = $stmt->rowCount();
+
+            $array[$count] = $total;
+            // echo $array[$count];
+            $count++;
+
+        }
+        Database::disconnect();
+        $jsondaten = json_encode($array);
+        return $jsondaten;
+
+
+
+    }
+
+    function datumMonat(){
+
+        $cont = Database::connect();
+        $count = 0;
+
+
+
+        for ($i = 30;$i>=0;$i--) {
+            $sql = "SELECT Date(CURRENT_DATE-$i) as 'date' FROM dual";
+
+            $stmt = $cont->prepare($sql);
+            $stmt->execute(array());
+            while($row = $stmt->fetch()){
+                $date = new DateTime($row['date']);
+                $array[$count] = $date->format('d.m');
+            }
+            //$total = $stmt->fetchAll();
+
+
+
+            //$array[$count] = $total[0];
+            // echo $array[$count];
+            $count++;
+
+        }
+        Database::disconnect();
+        $jsondaten = json_encode($array);
+        return $jsondaten;
+    }
 
 }
 

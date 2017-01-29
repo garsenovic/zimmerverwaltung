@@ -35,7 +35,6 @@
     </div>
 
 
-    $new = NEW datenbeschaffung();
 
 
     <script>
@@ -53,10 +52,13 @@
 
             }
             else if (wie==3){
-                var ansicht = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 ,26 ,27, 28,29,30,31];
+                var ansicht = <?php echo $new->datumMonat();?>;
+                //var ansicht = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 ,26 ,27, 28,29,30,31];
+                var daten = <?php echo $new->monatFunc();?>;
             }
             else{
                 var ansicht = ["Jänner", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "Septmeber", "Oktober", "November", "Dezember"];
+                var daten = <?php echo $new->jahrFunc();?>;
             };
 
 
