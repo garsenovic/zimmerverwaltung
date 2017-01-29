@@ -38,13 +38,14 @@
 
 
     <script>
-        <?php $new = new datenbeschaffung()
-        ?>
+
+        <?php $new = new datenbeschaffung()        ?>
         function ansichtAendern(wie) {
 
             if (wie == 1) {
-                var ansicht = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
-                var daten = [1,2,3,4];
+                //var ansicht = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
+                var ansicht = <?php echo $new->zeitTag();?>;
+                var daten = <?php echo $new->tagFunc();?>;
             }
             else if (wie == 2){
                 var ansicht = ["6 Tagen", "5 Tagen", "4 Tagen", "Vor 3 Tagen", "Vor 2 Tagen", "Vorgestern", "Gestern"];
@@ -62,84 +63,24 @@
             };
 
 
-                var ctx = document.getElementById('myChart').getContext('2d');
-                var myChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: ansicht,
-                        datasets: [{
-                            label: 'Buchungen',
-                            data: daten,
-                            backgroundColor: "rgba(153,255,51,0.4)"
-                        },]
-                    }
-                });
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ansicht,
+                    datasets: [{
+                        label: 'Buchungen',
+                        data: daten,
+                        backgroundColor: "rgba(153,255,51,0.4)"
+                    },]
+                }
+            });
 
-            }
-
+        }
     </script>
-    <?php
 
 
-
-    if(isset($_POST['Ansicht'])){
-        $a = $_POST['Ansicht'];
-        if($a == 1)
-        {
-
-        }
-        elseif ($a==2){
-
-
-        }
-        elseif ($a==3)
-        {
-
-        }
-        else{
-
-        }
-        //echo $_POST['Ansicht'];
-
-    }
-
-
-    ?>
-
-<!--
-    <canvas id="myChart" width="200" height="200"> </canvas>
 </div>
-<script language="javascript" type="text/javascript">
 
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Jänner', 'Februar', 'März', 'April', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-            datasets: [{
-                label: 'apples',
-                data: [12, 19, 3, 17, 6, 3, 7],
-                backgroundColor: "rgba(153,255,51,0.4)"
-            }, {
-                label: 'oranges',
-                data: [2, 29, 5, 5, 2, 3, 10],
-                backgroundColor: "rgba(255,153,0,0.4)"
-            }]
-        }
-    });
-
-
-</script>
 </body>
 </html>
-
--->
-<?php
-
-$data = array();
-/*
-Select count(*) from reservierung where timestamp between '2017-01-01 00:00:00' and '2017-01-31 23:59';
-Select count(*) from reservierung where timestamp between '2017-02-01 00:00:00' and '2017-02-29 23:59';
-Select count(*) from reservierung where timestamp between '2017-03-01 00:00:00' and '2017-03-31 23:59';
-*/
-?>
