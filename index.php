@@ -1,6 +1,6 @@
 <?php
 include 'controller/core/init.php';
-include 'controller/includes/overall/header.php'; ?>
+include 'view/includes/overall/header.php'; ?>
     <h1>Home</h1>
     <p>Just a template.</p>
 
@@ -9,4 +9,4 @@ if (isset($_SESSION['user_id'])) {
     echo 'Logged in.';
 }
 ?>
-<?php include 'controller/includes/overall/footer.php'; ?>
+<?php include 'view/includes/overall/footer.php'; ?>

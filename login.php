@@ -31,7 +31,7 @@ if (empty($_POST) === false) {
     $errors[] = 'No data received';
 }
 
-include 'controller/includes/overall/header.php';
+include 'view/includes/overall/header.php';
 if (empty($errors) === false) {
 
 }
@@ -40,5 +40,5 @@ if (empty($errors) === false) {
 
 <?php
 echo output_errors($errors);
-include 'controller/includes/overall/footer.php';
+include 'view/includes/overall/footer.php';
 ?>

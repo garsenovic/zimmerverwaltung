@@ -1,6 +1,6 @@
 <?php
 include 'controller/core/init.php';
-include 'controller/includes/overall/header.php';
+include 'view/includes/overall/header.php';
 
 if (empty($_POST) === false) {
     $required_fields = array('username', 'password', 'password_again', 'first_name', 'email');
@@ -94,4 +94,4 @@ if (isset($_GET['success']) && empty($_GET['success'])) {
 
     <?php
 }
-include 'controller/includes/overall/footer.php'; ?>
+include 'view/includes/overall/footer.php'; ?>
