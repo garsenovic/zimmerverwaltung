@@ -5,11 +5,11 @@
     <div class="inner">
         <ul>
             <li>
-                <a href="../../../logout.php">Log out</a>
+                <a href="logout.php">Log out</a>
             </li>
-            <li>
+            <!--<li>
                 <a href="../../../changepasswort.php">Change password</a>
-            </li>
+            </li>-->
         </ul>
     </div>
 </div>

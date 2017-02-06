@@ -14,9 +14,9 @@
                 <li>
                     <input type="submit" value="Log in"
                 </li>
-                <li>
+                <!--<li>
                     <a href="register.php">Register</a>
-                </li>
+                </li>-->
             </ul>
         </form>
     </div>

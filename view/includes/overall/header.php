@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
-<?php include 'controller/includes/head.php'; ?>
+<?php include 'view/includes/head.php'; ?>
 <body>
-<?php include 'controller/includes/header.php'; ?>
+<?php include 'view/includes/header.php'; ?>
 <div id="container">
-    <?php include 'controller/includes/aside.php'; ?>
+    <?php include 'view/includes/aside.php'; ?>
